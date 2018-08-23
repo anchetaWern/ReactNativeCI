@@ -11,6 +11,7 @@ class CardList extends Component {
     return (
       <View style={styles.container}>
         <FlatList
+          contentContainerStyle={styles.flatlist}
           data={this.props.cards}
           renderItem={this.renderCard}
           numColumns={2}
@@ -36,6 +37,9 @@ class CardList extends Component {
 const styles = {
   container: {
     flex: 1
+  },
+  flatlist: {
+    marginBottom: 50
   }
 };
 
