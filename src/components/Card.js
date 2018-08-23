@@ -1,18 +1,21 @@
 import React from "react";
-import { View, Image, Text, Dimensions } from "react-native";
+import { View, Image, Text, Dimensions, TouchableOpacity } from "react-native";
 import PropTypes from "prop-types";
-import IconButton from "./IconButton";
+
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const { width } = Dimensions.get("window");
 
 const Card = ({ image, text, is_favorite, action }) => {
   const icon = is_favorite ? "heart" : "heart-o";
   return (
-    <View style={styles.card}>
-      <Text style={styles.text}>{text}</Text>
-      <Image source={image} resizeMode={"contain"} style={styles.image} />
-      <IconButton icon={icon} color={"#333"} onPress={action} />
-    </View>
+    <TouchableOpacity onPress={action}>
+      <View style={styles.card}>
+        <Text style={styles.text}>{text}</Text>
+        <Image source={image} resizeMode={"contain"} style={styles.image} />
+        <Icon name={icon} size={30} color={"#333"} />
+      </View>
+    </TouchableOpacity>
   );
 };
 
