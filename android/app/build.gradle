@@ -94,18 +94,24 @@ def enableSeparateBuildPerCPUArchitecture = false
 def enableProguardInReleaseBuilds = false
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+
+    compileSdkVersion 27 // Detox: update existing with this one
+    buildToolsVersion '27.0.2' // Detox: update existing with this one
 
     defaultConfig {
         applicationId "com.reactnativeci"
-        minSdkVersion 16
-        targetSdkVersion 22
+        minSdkVersion 18 // Detox: update existing with this one
+        targetSdkVersion 26 // Detox: update existing with this one
         versionCode 1
         versionName "1.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
+        // Detox: start
+        testBuildType System.getProperty('testBuildType', 'debug')
+        missingDimensionStrategy "minReactNative", "minReactNative46"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        // Detox: end
     }
     splits {
         abi {
@@ -140,6 +146,14 @@ dependencies {
     compile project(':react-native-vector-icons')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
+
+    // Detox: start
+    androidTestImplementation(project(path: ":detox"))
+    androidTestImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test:rules:1.0.1'
+    // Detox: end
+
     compile "com.facebook.react:react-native:+"  // From node_modules
 }
 

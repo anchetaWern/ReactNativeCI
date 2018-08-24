@@ -19,7 +19,9 @@
 	"devDependencies": {
 		"babel-jest": "23.4.2",
 		"babel-preset-react-native": "4.0.0",
+		"detox": "8.1.6",
 		"jest": "23.5.0",
+		"mocha": "4.0.1",
 		"react-test-renderer": "16.0.0"
 	},
 	"jest": {
@@ -30,8 +32,30 @@
 		"transform": {
 			"\\.(jpg|jpeg|png|gif)$": "<rootDir>/fileTransformer.js"
 		},
-		"setupFiles": [
-			"<rootDir>/node_modules/appcenter/test/AppCenterMock.js"
-		]
+
+		"testMatch": ["<rootDir>/__tests__/*"]
+	},
+	"detox": {
+		"configurations": {
+			"ios.sim.debug": {
+				"binaryPath":
+					"ios/build/Build/Products/Debug-iphonesimulator/ReactNativeCI.app",
+				"build":
+					"xcodebuild -project ios/ReactNativeCI.xcodeproj -scheme ReactNativeCI -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+				"type": "ios.simulator",
+				"name": "iPhone 5s"
+			},
+			"android.emu.debug": {
+				"binaryPath":
+					"./android/app/build/outputs/apk/debug/app-debug.apk",
+				"build":
+					"cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+				"type": "android.attached",
+				"name": "192.168.57.101:5555"
+			}
+		},
+		"test-runner": "mocha",
+		"specs": "e2e",
+		"runner-config": "e2e/mocha.opts"
 	}
 }

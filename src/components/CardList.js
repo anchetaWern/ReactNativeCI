@@ -17,7 +17,12 @@ class CardList extends Component {
     const { fetching, cards } = this.props;
     return (
       <View style={styles.container}>
-        <ActivityIndicator size="large" color="#333" animating={fetching} />
+        <ActivityIndicator
+          size="large"
+          color="#333"
+          animating={fetching}
+          testID="loader"
+        />
         <FlatList
           contentContainerStyle={styles.flatlist}
           data={cards}
