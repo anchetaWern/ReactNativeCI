@@ -8,7 +8,6 @@
  */
 
 #import "AppDelegate.h"
-#import <AppCenterReactNative/AppCenterReactNative.h>
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
@@ -18,8 +17,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   NSURL *jsCodeLocation;
-
-  [AppCenterReactNative register];  // Initialize AppCenter 
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
