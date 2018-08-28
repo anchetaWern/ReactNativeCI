@@ -38,10 +38,11 @@ react-native init ReactNativeCI --version react-native@0.50
 - `android/build.gradle`
 - `android/gradle/wrapper/gradle-wrapper.properties`
 
-5. Install additional packages:
+5. Install additional packages and link them:
 
 ```
-yarn add redux-saga react-native-simple-store
+yarn add redux-saga react-native-simple-store redux react-redux prop-types
+react-native link
 ```
 
 6. Run the app:
