@@ -4,6 +4,12 @@ A sample React Native app showing how to use Visual Studio App Center and Bitris
 
 This branch contains the final output of the Getting started with continuous integration in React Native series.
 
+Full tutorial is available at: 
+
+- [https://pusher.com/tutorials/continuous-integration-react-native-part-1](https://pusher.com/tutorials/continuous-integration-react-native-part-1)
+- [https://pusher.com/tutorials/continuous-integration-react-native-part-2](https://pusher.com/tutorials/continuous-integration-react-native-part-2)
+- [https://pusher.com/tutorials/continuous-integration-react-native-part-3](https://pusher.com/tutorials/continuous-integration-react-native-part-3)
+
 _Note: the React Native code in this repo may be a little bit outdated and won't run immediately after you've followed the setup instructions. Be sure to refactor the code to use the more recent React Native syntax if it doesn't run for you._
 
 ## Prerequisites
